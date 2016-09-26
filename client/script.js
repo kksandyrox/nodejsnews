@@ -45,7 +45,7 @@
 
 		}
 		var category_id = getCatIdFromName(categories, $route.current.params.name);
-		$http.get("http://" + $location.host() + ":8080/categoryNews/" + category_id)
+		$http.get("http://" + $location.host() + "/categoryNews/" + category_id)
 		.then(function (response) {
 			$scope.generalNews = response.data;
 		});
@@ -65,12 +65,12 @@
 			source_id = $route.current.params.source;
 		}
 
-		$http.get("http://" + $location.host() + ":8080/sources")
+		$http.get("http://" + $location.host() + "/sources")
 		.then(function (response) {
 			$scope.sources = response.data;
 		})
 
-		$http.get("http://" + $location.host() + ":8080/sourceNews/" + source_id)
+		$http.get("http://" + $location.host() + "/sourceNews/" + source_id)
 		.then(function (response) {
 			console.log(source_id)
 			$scope.sourceNews = response.data;
