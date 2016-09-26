@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<!-- define angular app -->
+<html ng-app="scotchApp">
+
+<head>
+  <!-- SCROLLS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
+  <!-- SPELLS -->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  <script src="script.js"></script>
+</head>
+
+<!-- define angular controller -->
+<body>
+
+ <nav class = "blue">
+    <div class="nav-wrapper container">
+      <a href="#" class="brand-logo">News Bizz</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="#general">General</a></li>
+        <li><a href="#technology">Technology</a></li>
+        <li><a href="#sports">Sports</a></li>
+        <li><a href="#business">Business</a></li>
+        <li><a href="#entertainment">Entertainment</a></li>
+        <li><a href="#gaming">Gaming</a></li>
+        <li><a href="#sources"><span class="black-text">Browse by sources</span></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div id="main">
+    <div class="container">
+      <div ng-view></div>
+    </div>    
+  </div>
+  
+  <footer class="page-footer blue">
+    <div class="footer-copyright">
+      <div class="container">
+      © 2014 Copyright Text
+      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+      </div>
+    </div>
+  </footer>
+  
+</body>
+
+</html>

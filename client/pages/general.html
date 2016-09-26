@@ -1,0 +1,16 @@
+<div ng-repeat="news in generalNews">
+	<h4 class="header">{{news.title}}</h4>
+	<div class="card horizontal">
+		<div class="card-image">
+			<img src="{{news.url_to_image}}" class="responsive-img">
+		</div>
+		<div class="card-stacked">
+			<div class="card-content">
+				<p>{{news.description}}</p>
+			</div>
+			<div class="card-action">
+				<a href="{{news.url}}">Visit Source</a>
+			</div>
+		</div>
+	</div>
+</div>
