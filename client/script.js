@@ -51,13 +51,6 @@
 		});
 	});
 
-	scotchApp.controller('sourcesController', function($scope, $http, $location) {
-		$http.get("http://" + $location.host() + "/server/api/sources")
-		.then(function (response) {
-			console.log(response.data);
-			$scope.sources = response.data;
-		})
-	});
 
 	scotchApp.controller('sourceNewsController', function($scope, $http, $route, $location) {
 		var source_id = 1;
@@ -67,18 +60,16 @@
 
 		$http.get("http://" + $location.host() + "/sources")
 		.then(function (response) {
+			console.log(response.data);
 			$scope.sources = response.data;
 		})
 
 		$http.get("http://" + $location.host() + "/sourceNews/" + source_id)
 		.then(function (response) {
-			console.log(source_id)
 			$scope.sourceNews = response.data;
 			$scope.currentSource = source_id;
 			$scope.topNews = _.groupBy(response.data, 'sort_id')['1'];
 			$scope.latestNews = _.groupBy(response.data, 'sort_id')['2'];
 			$scope.popularNews = _.groupBy(response.data, 'sort_id')['3'];
-			console.log($location.host());
-			console.log(_.groupBy(response.data, 'sort_id'));
 		})
 	});
