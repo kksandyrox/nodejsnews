@@ -1,5 +1,5 @@
 var _ = require('underscore');
-var db = require('../../lib/database');
+var db = require('../../../lib/database');
 
 exports.getNewsSources = "SELECT id, code, category_id FROM sources LIMIT 10"; 
 

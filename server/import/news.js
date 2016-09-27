@@ -1,4 +1,4 @@
-var db = require('../lib/database');
+var db = require('../../lib/database');
 var sql = require('./sql/sql')
 
 exports.getSources = function(callback) {

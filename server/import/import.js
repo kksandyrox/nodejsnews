@@ -1,9 +1,10 @@
-var db = require('../lib/database');
-var util = require('../lib/utilities');
+var db = require('../../lib/database');
+var util = require('../../lib/utilities');
 var https = require('https');
 var async = require('async');
 var _ = require('underscore');
 var News = require('./news');
+var os = require('os');
 
 
 function requestNews(params, callback) {
@@ -73,6 +74,7 @@ function importNews() {
 	});
 }
 
-importNews();
+// importNews();
 
 
+console.log(os.hostname())
