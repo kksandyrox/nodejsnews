@@ -18,9 +18,3 @@ server.listen(port, ip);
 
 app.use(express.static(__dirname + '/client'));  
 routes.configure(app);
-
-// app.get('/categoryNews/:id', function(req, res) {
-//     db.query("SELECT * FROM news WHERE category_id = " + req.params.id, function(data) {
-//         res.json(data);
-//     });
-// })

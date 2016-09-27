@@ -74,7 +74,4 @@ function importNews() {
 	});
 }
 
-// importNews();
-
-
-console.log(os.hostname())
+importNews();
