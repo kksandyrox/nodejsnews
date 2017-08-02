@@ -3,8 +3,14 @@ var db = require('../lib/database');
 module.exports = {
   configure: function(app) {
 
+    app.get('/carousal', function(req, res) {
+      db.query('SELECT * FROM news LIMIT 5', function(data) {
+        res.json(data);
+      })
+    });
+    
     app.get('/categoryNews/:id', function(req, res) {
-      db.query("SELECT * FROM news WHERE category_id = " + req.params.id, function(data) {
+      db.query("SELECT * FROM news WHERE category_id = " + req.params.id + " ORDER BY created DESC", function(data) {
         res.json(data);
       });
     });
@@ -20,5 +26,8 @@ module.exports = {
         res.json(data)
       })
     });
+
+
+
   }
 };

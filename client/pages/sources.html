@@ -1,18 +1,18 @@
-<ul id="slide-out" class="side-nav fixed">
+<ul id="slide-out" class="side-nav">
     <li  ng-repeat="source in sources" class="bold" ng-class="{true: 'active'}[source.id == currentSource]"><a href="#sources?source={{source.id}}" class="waves-effect waves-teal">{{source.name}}</a></li>
 </ul>
-<a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">Menu</i></a>
   
 <!-- Filter menus-->
   <div class="row">
-    <div class="col s12">
+    <div class="col l10  offset-l2 col s12">
       <ul class="tabs">
         <li class="tab col s3"><a href="#top">TOP</a></li>
         <li class="tab col s3"><a href="#latest">LATEST</a></li>
         <li class="tab col s3"><a href="#popular">POPULAR</a></li>
       </ul>
     </div>
-    <div id="top" class="col s12">
+    <div id="top" class="col l10  offset-l2">
       <div ng-repeat="news in topNews">
         <h4 class="header">{{news.title}}</h4>
         <div class="card horizontal">
@@ -92,14 +92,21 @@
   $(document).ready(function() {
     $('.button-collapse').sideNav({
           menuWidth: 300,
-          closeOnClick: false 
+          edge: 'right',
+          closeOnClick: true 
         }
       );
 
+    // $(".black-text").click(function(e) {
+    //   if($("#slide-out").length) {
+    //     $('.button-collapse').sideNav('hide');
+    //   }
+    //   else {
+    //     $('.button-collapse').sideNav('show');
+    //   }
+    // });
+
     $('ul.tabs').tabs();
-    // $(".tabs").click(function() {
-    //   $("#hideThis").hide();
-    // })
 
   });
 </script>

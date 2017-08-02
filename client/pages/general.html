@@ -1,4 +1,4 @@
-<div ng-repeat="news in generalNews">
+<!-- <div ng-repeat="news in generalNews">
 	<h4 class="header">{{news.title}}</h4>
 	<div class="card horizontal">
 		<div class="card-image">
@@ -10,6 +10,93 @@
 			</div>
 			<div class="card-action">
 				<a href="{{news.url}}">Visit Source</a>
+			</div>
+		</div>
+	</div>
+</div> -->
+          <!--mid column-->
+          <div class="col-md-3">
+              <div class="panel test" id="midCol">
+                <div class="panel-heading" style="background-color:#555;color:#eee;">Top Sources</div> 
+                <div class="panel-body">
+                  <div class="media">
+                    <a class="pull-left" href="#">
+                      <img class="media-object img-responsive" src="/images/sources/espn.png">
+                    </a>
+                    <div class="media-body">
+                      <h5 class="media-heading"><a href="/tagged/modal" target="ext" class="pull-right"><i class="glyphicon glyphicon-share"></i></a> <a href="#"><strong>ESPN</strong></a></h5>
+                      <small>Examples using the Bootstrap modal.</small><br>
+                      <span class="badge">87</span>
+                    </div>
+                  </div>
+                  <div class="media">
+                    <a class="pull-left" href="#">
+                      <img class="media-object img-responsive" src="/images/sources/bbc.png">
+                    </a>
+                    <div class="media-body">
+                      <h5 class="media-heading"><a href="/tagged/slider" target="ext" class="pull-right"><i class="glyphicon glyphicon-share"></i></a> <a href="#"><strong>BBC</strong></a></h5>
+                      <small>How to use the Bootstrap slider.</small><br>
+                      <span class="badge">322</span>
+                    </div>
+                  </div>
+                  <div class="media">
+                    <a class="pull-left" href="#">
+                      <img class="media-object img-responsive" src="/images/sources/nyt.png">
+                    </a>
+                    <div class="media-body">
+                      <h5 class="media-heading"><a href="/tagged/typography" target="ext" class="pull-right"><i class="glyphicon glyphicon-share"></i></a> <a href="#"><strong>The New York Times</strong></a></h5>
+                      <small>See the various textual elements and options.</small><br>
+                      <span class="badge">44</span>
+                    </div>
+                  </div>
+                  <div class="media">
+                    <a class="pull-left" href="#">
+                      <img class="media-object img-responsive" src="/images/sources/cnn.png">
+                    </a>
+                    <div class="media-body">
+                      <h5 class="media-heading"><a href="/tagged/media" target="ext" class="pull-right"><i class="glyphicon glyphicon-share"></i></a> <a href="#"><strong>CNN</strong></a></h5>
+                      <small>Use @media queries to get the layout you want.</small><br>
+                      <span class="badge">119</span>
+                    </div>
+                 </div>
+                  <div class="media">
+                    <a class="pull-left" href="#">
+                      <img class="media-object img-responsive" src="/images/sources/ars-technica.png">
+                    </a>
+                    <div class="media-body">
+                      <h5 class="media-heading"><a href="/tagged/media" target="ext" class="pull-right"><i class="glyphicon glyphicon-share"></i></a> <a href="#"><strong>Ars Technica</strong></a></h5>
+                      <small>Use @media queries to get the layout you want.</small><br>
+                      <span class="badge">119</span>
+                    </div>
+                 </div>                 
+                  
+               </div> 
+               </div><!--/panel-->
+          </div><!--/end mid column-->
+
+<div class="col-md-7" id="content">
+	<div class="panel">
+		<div class="panel-heading" style="background-color:#111;color:#fff;">{{category | uppercase}}</div>   
+		<div class="panel-body">
+			<div infinite-scroll='loadMore()' infinite-scroll-distance='2'>
+				<div ng-repeat="news in generalNews">
+					<div class="row">
+						<div class="col-md-8">
+							<h2>{{news.title}}</h2>
+							<p>{{news.description}}</p>
+							<br><br>
+							<a href="{{news.url}}" class="btn btn-primary" target="_blank">View Source</a>
+						</div> 
+						<div class="col col-sm-4">
+							<a href="#"><img src="{{news.url_to_image}}" class="img-responsive"></a>
+							<p>
+								Author: {{news.author}}
+							</p>
+							<div class="text-muted"><small>{{ "2016-09-20T05:06:44.000Z" | date : 'dd MMM, yyyy'}}</small></div>
+						</div>   
+					</div>
+					<hr>
+				</div>
 			</div>
 		</div>
 	</div>

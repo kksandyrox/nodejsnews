@@ -1,5 +1,5 @@
 	// create the module and name it scotchApp
-	var scotchApp = angular.module('scotchApp', ['ngRoute']);
+	var scotchApp = angular.module('scotchApp', ['ngRoute', 'infinite-scroll']);
 
 	var API_URL = "server/api.php"
 
@@ -39,15 +39,32 @@
 
 	});
 
+	scotchApp.controller('homeController', function($scope, $http, $location) {
+		$http.get("http://" + $location.host() + ":8080/carousal")
+		.then(function(response) {
+			$scope.carousalNews = response.data;
+		});
+	});
+
 	scotchApp.controller('generalController', function($scope, $http, $route, $location) {
 		function getCatIdFromName(categories, name) {
 			return categories[name];
 
 		}
 		var category_id = getCatIdFromName(categories, $route.current.params.name);
-		$http.get("http://" + $location.host() + "/categoryNews/" + category_id)
+		$http.get("http://" + $location.host() + ":8080/categoryNews/" + category_id)
 		.then(function (response) {
-			$scope.generalNews = response.data;
+			var data = response.data.slice(0);
+
+			$scope.generalNews = data;
+			$scope.generalNews.splice(3, data.length);
+			$scope.category = $route.current.params.name
+			$scope.loadMore = function() {
+				var last = $scope.generalNews.length - 1;
+			    for(var i = 1; i <= 2; i++) {
+			     	$scope.generalNews.push(response.data[last + i]);
+			    }
+			};			
 		});
 	});
 
@@ -58,13 +75,13 @@
 			source_id = $route.current.params.source;
 		}
 
-		$http.get("http://" + $location.host() + "/sources")
+		$http.get("http://" + $location.host() + ":8080/sources")
 		.then(function (response) {
 			console.log(response.data);
 			$scope.sources = response.data;
 		})
 
-		$http.get("http://" + $location.host() + "/sourceNews/" + source_id)
+		$http.get("http://" + $location.host() + ":8080/sourceNews/" + source_id)
 		.then(function (response) {
 			$scope.sourceNews = response.data;
 			$scope.currentSource = source_id;
